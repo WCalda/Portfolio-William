@@ -101,13 +101,13 @@ body{
 }
 
 @keyframes downloadfile{
-    33%{
+    from{
         visibility: visible;
         background-color: #28313B;
         color: red;
     }
 
-    100%{
+    to{
         visibility: hidden;
     }
 }
