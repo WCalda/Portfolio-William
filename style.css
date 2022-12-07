@@ -15,6 +15,9 @@
 
     --mobile-pic-height: 15em;
     --mobile-pic-width: 15em;
+
+    --side-pic-width: 25rem;
+    --side-pic-height: 30rem;
 }
 
 body{
@@ -24,17 +27,18 @@ body{
 }
 
 #content-wrapper{
-    background: linear-gradient(180deg, #2C3E50, #28313B);
+    background: linear-gradient(90deg, #2C3E50, #28313B);
     width: 90%;
-    height: 100vh;
+    height: 200vh;
     margin-inline: auto;
     display: grid;
     grid-template-areas: 
     'head head'
     'main main'
+    'article article'
     'foot foot';
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 100px 1fr 100px;
+    grid-template-rows: 100px 1fr 1fr 100px;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -107,6 +111,40 @@ body{
     color: #FFF;
 }
 
+#achievement-section{
+    grid-area: article;
+    display: grid;
+    width: 90%;
+    margin-inline: auto;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+#side-container{
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+}
+
+#side-pic{
+    place-self: center;
+    width: var(--side-pic-width);
+    height: var(--side-pic-height);
+    object-fit: cover;
+    border: 8px double #FFF;
+}
+
+.picbtn{
+    place-self: center;
+    background: transparent;
+    border-radius: 50%;
+    padding: 0.5rem 0.8rem;
+}
+
+.picbtn:hover{
+    border: 0.5rem solid #FFF;
+    color: #FFF;
+    cursor: pointer;
+}
+
 #foot-section{
     grid-area: foot;
     display: grid;
@@ -123,14 +161,19 @@ body{
 }
 
 @media (max-width: 600px) {
+    body{
+        margin: 0;
+        background: linear-gradient(180deg, #2C3E50, #28313B);
+    }
     #content-wrapper{
         width: 100%;
         grid-template-areas: 
         'head'
         'main'
+        'article'
         'foot';
         grid-template-columns: 1fr;
-        grid-template-rows: 200px 1fr 200px;
+        grid-template-rows: 200px 1fr 1fr 200px;
     }
 
     #head-container{
@@ -169,8 +212,16 @@ body{
         margin: 0;
     }
 
+    #achievement-section{
+        margin: 0;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
     #downloadbtn{
-        margin-top: 2rem;
+        margin-top: 0;
+        margin-bottom: 2rem;
     }
 
     #main-body{
